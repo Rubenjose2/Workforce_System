@@ -12,7 +12,7 @@ Final project UCF BootCamp
 * Laravel PHP
 
 ## Objective
-The main porpose of this solution is:
+The main purpose of this solution is:
 
 ## Message System
 * Have a UX solution for the Employer and Employees to delivery formal communication
