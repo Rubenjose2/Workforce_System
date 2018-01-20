@@ -11,5 +11,7 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix.react('resources/assets/js/app.js', 'public/js');
+mix.copy('resources/assets/css/star-rating.css', 'public/css');
+mix.copy('resources/assets/bootstrap/css/bootstrap.min.css', 'public/css');
+mix.js('resources/assets/js/chart.js', 'public/js');
