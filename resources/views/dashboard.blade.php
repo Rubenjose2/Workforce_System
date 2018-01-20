@@ -1,6 +1,9 @@
 @extends('layouts.main')
+{{--  Adding the star rating stylus  --}}
+<link href="{{ asset('css/star-rating.css') }}" rel="stylesheet">   
 
 @section('content')
+
 <div class="container">
     <div class="page-header">
         <h1>Dashboad<small></small></h1>
@@ -23,7 +26,7 @@
                             </div>
                             <!-- End Rating Display -->
                             <!-- Begining Personal Data Display -->
-
+            
                             <div class="col-sm-6 col-md-6 col-lg-6 text-center">
                                 <div class="name-badge">
                                     Steve Jobs
@@ -34,15 +37,15 @@
                                 </div>
                                 <br>
                                 <button type="button" class="btn btn-default"><i class="fa fa-cog" aria-hidden="true"></i>  Edit</button>
-
-
+            
+            
                             </div>
-
+            
                         </div>
                     </div>
                     <!-- End of perfonal information content -->
                 </div>
-
+            
             </div>
         </div>
         <!-- End of Perfonal Information Card -->

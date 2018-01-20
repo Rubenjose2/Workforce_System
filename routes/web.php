@@ -19,6 +19,10 @@ Route::get('/dashboard',function(){
     return view('dashboard');
 });
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('user-register','userAuthController@showRegisterController')->name('custom.register');
+Route::post('user-register','userAuthController@register');
