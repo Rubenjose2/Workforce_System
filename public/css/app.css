@@ -5,8 +5,21 @@
 /* Import Bootstrap compponets  */
 
 @import url('./bootstrap.min.css');
+@font-face {
+    font-family: "FontAwesome";
+    src: url("../fonts/fontawesome-webfont.eot");
+    src: url("../fonts/fontawesome-webfont.woff") format("woff"), url("../fonts/FontAwesome.otf") format("opentype"), url("../fonts/fontawesome-webfont.svg") format("svg");
+}
+
 
 /* End Importing Bootstrap */
+
+.white-container {
+    background: white;
+    border-style: solid;
+    border-width: 1px;
+    padding: 20px;
+}
 
 .navbar-default {
     background: #4f5b69;

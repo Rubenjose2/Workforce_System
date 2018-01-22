@@ -29,14 +29,15 @@
             
                             <div class="col-sm-6 col-md-6 col-lg-6 text-center">
                                 <div class="name-badge">
-                                    Steve Jobs
+                                    {{Auth::user()->fname}}
+                                    {{Auth::user()->lname}}
                                 </div>
-                                <div>ID: MAFL90000</div>
+                                <div>ID: {{Auth::user()->tech_id}}</div>
                                 <div>
-                                    Title: Technician
+                                    Title: {{Auth::user()->role}}
                                 </div>
                                 <br>
-                                <button type="button" class="btn btn-default"><i class="fa fa-cog" aria-hidden="true"></i>  Edit</button>
+                                <a type="button" href="/user_edit" class="btn btn-default"><i class="fa fa-cog" aria-hidden="true"></i>  Edit</a>
             
             
                             </div>

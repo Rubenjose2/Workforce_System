@@ -21,10 +21,7 @@
 <body>
     {{-- navBar head --}}
     <nav class="navbar navbar-default navbar-fixed-top color-blue" role="navigation">
-        <a class="navbar-brand white" href="/">WorkForce Personal</a>
-        <nav class="nav navbar-nav navbar-right">
-            <div>{{Auth::user()->fname }} </div>
-        </nav>
+        <a class="navbar-brand white" href="/">WorkForce Admin Panel</a>
     </nav>
 
     <div class="container-fluid containers">
@@ -36,18 +33,23 @@
 
                         <ul id="menu-content" class="menu-content collapse out">
                             <li>
-                                <a href="/">
+                                <a href="{{route('admin')}}">
                                     <i class="glyphicon glyphicon-dashboard
                                     "></i> Dashboard
                                 </a>
                             </li>
-                            <li>
+
+                            <li data-toggle="collapse" data-target="#service" class="collapsed">
                                 <a href="#">
-                                    <i class="glyphicon glyphicon-envelope
-                                    "></i> Messages
+                                    <i class="glyphicon glyphicon-envelope"></i> Messages
+                                    <span class="arrow"></span>
                                 </a>
                             </li>
-
+                            <ul class="sub-menu collapse" id="service">
+                                <li><a href="{{route('messages.create')}}"> Create a New Message </a></li>
+                                <li>List all the Messages</li>
+                                <li>New Service 3</li>
+                            </ul>
                             <li>
                                 <a href="#">
                                     <i class="glyphicon glyphicon-stats
@@ -69,8 +71,7 @@
             </div>
             <!-- Ending of the Side Menu -->
             <div class="col-md-9 col-lg-9">
-            @include('flash-messages')
-             @yield('content')
+                @include('flash-messages') @yield('content')
             </div>
         </div>
 

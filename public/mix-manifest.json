@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/chart.js": "/js/chart.js",
+    "/js/bootstrap-formhelpers-phone.js": "/js/bootstrap-formhelpers-phone.js",
     "/css/star-rating.css": "/css/star-rating.css",
     "/css/bootstrap.min.css": "/css/bootstrap.min.css"
 }

@@ -11,18 +11,33 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard',function(){
-    return view('dashboard');
-});
-
+// Route::get('/', function () {
+//     return view('custom.login');
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('user-register','userAuthController@showRegisterController')->name('custom.register');
+Route::get('user-register','userAuthController@showRegisterform')->name('custom.register');
 Route::post('user-register','userAuthController@register');
+
+// Dashboard Routes
+
+Route::get('user_edit','userController@show')->name('user-edit');
+Route::post('user_edit','userController@update');
+
+
+// Adminstrator Routes
+
+Route::get('admin','adminControllerPages@show')->name('admin');
+
+
+//Administrator Messagers Routes
+
+Route::get('/admin/message_create','adminControllerMessages@create')->name('messages.create');
+
+
+
+// Route::get('user-login','userAuthController@showLoginform')->name('custom.login');
+// Route::post('user-login','userAuthController@login');

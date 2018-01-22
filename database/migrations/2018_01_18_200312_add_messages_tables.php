@@ -20,6 +20,7 @@ class AddMessagesTables extends Migration
             $table->string('subject');
             $table->string('body');
             $table->string('importance');
+            $table->char('created_by');
             $table->timestamps();
 
             //
