@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\User;
 use Auth;
 
 class userController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -105,5 +108,21 @@ class userController extends Controller
             'DOB'=> 'required|max:255',
             'password'=> 'required|confirmed|min:5|max:255',
         ]);
+    }
+
+    public function userlist(){
+        $users = User::all();
+
+        return view('administrator.user_list')->withUsers($users); 
+    }
+
+    public function userview($id){
+        
+        $user = User::find($id);
+
+        return view('administrator.userdetail')->withUser($user);
+
+
+
     }
 }

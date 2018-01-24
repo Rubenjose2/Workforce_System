@@ -39,3 +39,9 @@ Route::resource('admin/posts', 'adminControllerMessages');
 Route::get('admin/post_form','showMessangerForm@show')->name('postform.show');
 Route::get('admin/postshow','showMessangerForm@showPost');
 
+
+//User Admins site managements
+
+Route::get('admin/user','userController@userlist')->name('user.list');
+Route::get('admin/user/view/{id}','userController@userview');
+

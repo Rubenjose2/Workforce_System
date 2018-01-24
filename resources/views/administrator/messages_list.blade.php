@@ -11,7 +11,7 @@
         </tr>
         <tbody>
             @foreach ($posts as $post)
-            <tr class="click-row" data-send="{{$post->id}}">
+            <tr class="click-row pointer" data-send="{{$post->id}}">
                 <th >{{$post->id}}</th>
                 <th>{{$post->subject}}</th>
                 <th>{{$post->importance}}</th>
@@ -30,7 +30,6 @@
 <script>
     $(".click-row").click(function(event){
         $post_id = $(this).attr("data-send");
-        console.log($post_id);
         $.ajax({
             method:'GET',
             url:'/admin/postshow',
@@ -39,7 +38,7 @@
                 $('#myModalLabel').empty().append(response[0].subject);
                 $('.modal-body').empty().append(response[0].body);
                 $('#myModal').modal({'show' : true});
-                console.log(response);
+                //console.log(response);
               
             }
         })

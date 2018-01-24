@@ -14,6 +14,10 @@
 
 /* End Importing Bootstrap */
 
+.pointer {
+    cursor: pointer;
+}
+
 .white-container {
     background: white;
     border-style: solid;

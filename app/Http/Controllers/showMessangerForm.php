@@ -7,14 +7,18 @@ use App\Post;
 
 class showMessangerForm extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function show(){
         return view('administrator.message_builder');
     }
 
     public function showPost(Request $request){
-        $id = $request->all();
+        $data = $request->all();
         
-        $post = Post::find($id);
+        $post = Post::find($data);
 
 
 

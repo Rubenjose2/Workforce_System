@@ -13,11 +13,10 @@
 
     {{-- style --}}
 
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet"> {{-- Jquery and Bootstrap js --}}
 
-    {{--  Jquery and Bootstrap js  --}}
-
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
 
@@ -44,41 +43,54 @@
                                     "></i> Dashboard
                                 </a>
                             </li>
-
-                            <li data-toggle="collapse" data-target="#service" class="collapsed">
+                            <li data-toggle="collapse" data-target="#users" class="collapsed">
                                 <a href="#">
-                                    <i class="glyphicon glyphicon-envelope"></i> Messages
+                                    <i class="glyphicon glyphicon-user"></i> Users
                                     <span class="arrow"></span>
                                 </a>
                             </li>
-                            <ul class="sub-menu collapse" id="service">
-                                <li><a href="{{route('postform.show')}}"> Create a New Message </a></li>
-                                <li><a href="{{route('posts.index')}}">List all the Messages</a></li>
-                                <li>New Service 3</li>
+                            <ul class="sub-menu collapse" id="users">
+                                <li>
+                                    <a href="{{route('user.list')}}">List of User </a>
+                                </li>
                             </ul>
                             <li>
-                                <a href="#">
-                                    <i class="glyphicon glyphicon-stats
+                                <li data-toggle="collapse" data-target="#post" class="collapsed">
+                                    <a href="#">
+                                        <i class="glyphicon glyphicon-envelope"></i> Messages
+                                        <span class="arrow"></span>
+                                    </a>
+                                </li>
+                                <ul class="sub-menu collapse" id="post">
+                                    <li>
+                                        <a href="{{route('postform.show')}}">Create a New Message </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('posts.index')}}">List all the Messages</a>
+                                    </li>
+                                </ul>
+                                <li>
+                                    <a href="#">
+                                        <i class="glyphicon glyphicon-stats
                                     "></i> Performance
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit()" ;>
-                                    <i class="glyphicon glyphicon-off "></i> Logout
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </a>
-                            </li>
+                                        <i class="glyphicon glyphicon-off "></i> Logout
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </a>
+                                </li>
                         </ul>
                     </div>
                 </div>
             </div>
             <!-- Ending of the Side Menu -->
             <div class="col-md-9 col-lg-9">
-                @include('flash-messages') 
-                @yield('content')
+                @include('flash-messages') @yield('content')
             </div>
         </div>
 
