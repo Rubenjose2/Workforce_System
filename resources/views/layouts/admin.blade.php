@@ -15,6 +15,12 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    {{--  Jquery and Bootstrap js  --}}
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+
+
 
 </head>
 
@@ -46,8 +52,8 @@
                                 </a>
                             </li>
                             <ul class="sub-menu collapse" id="service">
-                                <li><a href="{{route('messages.create')}}"> Create a New Message </a></li>
-                                <li>List all the Messages</li>
+                                <li><a href="{{route('postform.show')}}"> Create a New Message </a></li>
+                                <li><a href="{{route('posts.index')}}">List all the Messages</a></li>
                                 <li>New Service 3</li>
                             </ul>
                             <li>
@@ -71,7 +77,8 @@
             </div>
             <!-- Ending of the Side Menu -->
             <div class="col-md-9 col-lg-9">
-                @include('flash-messages') @yield('content')
+                @include('flash-messages') 
+                @yield('content')
             </div>
         </div>
 
@@ -79,6 +86,7 @@
 
 
     <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 
 </html>

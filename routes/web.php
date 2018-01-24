@@ -35,9 +35,7 @@ Route::get('admin','adminControllerPages@show')->name('admin');
 
 //Administrator Messagers Routes
 
-Route::get('/admin/message_create','adminControllerMessages@create')->name('messages.create');
+Route::resource('admin/posts', 'adminControllerMessages');
+Route::get('admin/post_form','showMessangerForm@show')->name('postform.show');
+Route::get('admin/postshow','showMessangerForm@showPost');
 
-
-
-// Route::get('user-login','userAuthController@showLoginform')->name('custom.login');
-// Route::post('user-login','userAuthController@login');

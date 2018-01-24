@@ -177,6 +177,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // CkEditor Provider
+        Unisharp\Ckeditor\ServiceProvider::class,
+
     ],
 
     /*

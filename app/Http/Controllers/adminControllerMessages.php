@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Post;
+use Auth;
+
 class adminControllerMessages extends Controller
 {
     /**
@@ -11,9 +14,16 @@ class adminControllerMessages extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // public function showPostCreator(){
+    //     return view('administrator.message_builder');
+    // }
+
+
     public function index()
     {
+        $posts = Post::all();
     
+       return view('administrator.messages_list')->withPosts($posts);
     }
 
     /**
@@ -21,10 +31,21 @@ class adminControllerMessages extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('administrator.message_builder');
+
+
     }
+
+    public function validation($request){
+            return $this->validate($request,[
+                'subject'=> 'required|max:255',
+                'importance'=>'required|max:255',
+                'body'=>'required',
+            ]);
+    }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -34,7 +55,17 @@ class adminControllerMessages extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validation($request);
+        $post = new Post;
+        //Pulling the information from the current user logged
+        $user = Auth::user();
+        //Process of saving the message information into the database
+        $post->subject = $request->subject;
+        $post->body = $request->body;
+        $post->importance = $request->importance;
+        $post->created_by = $user->id;
+        $post->save();
+        return redirect('/admin')->with('success','Your distribution message have been created');
     }
 
     /**
@@ -43,9 +74,10 @@ class adminControllerMessages extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+
+    public function show()
     {
-        //
+
     }
 
     /**
