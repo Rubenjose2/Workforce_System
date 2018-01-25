@@ -44,4 +44,5 @@ Route::get('admin/postshow','showMessangerForm@showPost');
 
 Route::get('admin/user','userController@userlist')->name('user.list');
 Route::get('admin/user/view/{id}','userController@userview');
+Route::post('admin/user/view/{id}','userController@userAdminedit')->name('userAdminUpdate');
 

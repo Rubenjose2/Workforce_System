@@ -132,7 +132,6 @@
             <legend>Aditional Information</legend>
             <div class="row">
                 <div class="col-md-4">Tech id:{{$tech_id}}</div>
-                <div class="col-md-4">Role: {{$role}}</div>
                 <div class="col-md-4">User Creation: {{$created_at}}</div>
             </div>
             <br>

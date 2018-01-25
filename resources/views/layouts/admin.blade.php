@@ -90,7 +90,8 @@
             </div>
             <!-- Ending of the Side Menu -->
             <div class="col-md-9 col-lg-9">
-                @include('flash-messages') @yield('content')
+                @include('flash-messages') 
+                @yield('content')
             </div>
         </div>
 

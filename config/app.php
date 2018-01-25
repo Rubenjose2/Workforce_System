@@ -180,6 +180,9 @@ return [
         // CkEditor Provider
         Unisharp\Ckeditor\ServiceProvider::class,
 
+        //Forms and HTML added bu Ruben
+        Collective\Html\HtmlServiceProvider::class,
+
     ],
 
     /*
@@ -228,6 +231,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        // Foms and HTML added by Ruben
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

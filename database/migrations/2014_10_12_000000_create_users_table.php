@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('phone',18);
             $table->date('DOB');
             $table->string('security_level')->nullable($value = true);
-            $table->string('role')->nullable($value = true);
+            $table->char('role')->default(1);
             $table->boolean('confirmed')->default(0);
             $table->string('status',30)->default('active');
             $table->string('picture')->nullable($value = true);

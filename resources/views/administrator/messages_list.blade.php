@@ -24,7 +24,6 @@
     </table>
         {{--  Modal view the Post description  --}}
     <div>
-        Modal Here
     @include('administrator.partial._modal') 
     </div>
 <script>

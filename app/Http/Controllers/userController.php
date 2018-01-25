@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
+use App\Role;
 
 class userController extends Controller
 {
@@ -119,10 +120,31 @@ class userController extends Controller
     public function userview($id){
         
         $user = User::find($id);
-
-        return view('administrator.userdetail')->withUser($user);
-
-
+        $userFullname = $user->fname." ".$user->lname; 
+        $roles = Role::all();
+        // dd($user);
+        return view('administrator.userdetail')->with('user',$user)
+                                               ->with('fullname',$userFullname)
+                                               ->with('roles',$roles);
 
     }
+        public function userAdminedit($id,Request $request){
+        
+            $user = User::find($id);
+            $userFullname = $user->fname." ".$user->lname; 
+            $roles = Role::all();
+            //Updating from the form
+            $user->status = $request['inlineRadioOptions'];
+            $user->security_level = $request['security_level'];
+            $user->role = $request['role'];
+            $user->tech_id = $request['tech_id'];
+            $user->save();
+         return view('administrator.userdetail')->with('user',$user)
+                                                ->with('fullname',$userFullname)
+                                               ->with('roles',$roles);;
+
+    }
+
+
+
 }
