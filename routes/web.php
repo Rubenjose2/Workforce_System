@@ -26,6 +26,7 @@ Route::post('user-register','userAuthController@register');
 
 Route::get('user_edit','userController@show')->name('user-edit');
 Route::post('user_edit','userController@update');
+Route::get('user-post','showMessangerForm@postlist');
 
 
 // Adminstrator Routes
@@ -38,6 +39,9 @@ Route::get('admin','adminControllerPages@show')->name('admin');
 Route::resource('admin/posts', 'adminControllerMessages');
 Route::get('admin/post_form','showMessangerForm@show')->name('postform.show');
 Route::get('admin/postshow','showMessangerForm@showPost');
+Route::get('updatepost','showMessangerForm@userUpdatePost');
+//TEST//
+Route::get('post/{id}','showMessangerForm@usertest');
 
 
 //User Admins site managements

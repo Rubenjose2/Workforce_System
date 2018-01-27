@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Post;
+use App\User;
 use Auth;
+
 
 class adminControllerMessages extends Controller
 {
@@ -69,8 +71,21 @@ class adminControllerMessages extends Controller
         $post->importance = $request->importance;
         $post->created_by = $user->id;
         $post->save();
+        //Process to assign all the post to all the user
+        $this->masspostdelivery($post->id);
+        //Returning to the view
         return redirect('/admin')->with('success','Your distribution message have been created');
     }
+
+    public function masspostdelivery($post_id){
+        //function to adding a message to all the users ones is created
+        //Firts loop for all the user
+        $users = User::all();
+        foreach ($users as $user){
+            //Here we are inserting values inside the pivot table
+            $user->post()->attach($post_id,['status'=>'0','combine_id'=>$user->id.$post_id]);
+          }
+        }
 
     /**
      * Display the specified resource.

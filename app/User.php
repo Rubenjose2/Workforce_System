@@ -36,6 +36,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $touches = ['post'];
+
     public function posts(){
         return $this->hasMany('App\Post','created_by');
     }
@@ -44,5 +46,9 @@ class User extends Authenticatable
 
     public function roles(){
         return $this->hasOne('App\Role','id','role');
+    }
+
+    public function post(){
+        return $this->belongsToMany('App\Post')->withPivot('id','status');
     }
 }

@@ -139,9 +139,14 @@ class userController extends Controller
             $user->role = $request['role'];
             $user->tech_id = $request['tech_id'];
             $user->save();
-         return view('administrator.userdetail')->with('user',$user)
-                                                ->with('fullname',$userFullname)
-                                               ->with('roles',$roles);;
+            // return view('administrator.userdetail')->with('user',$user)
+            //                                        ->with('fullname',$userFullname)
+            //                                        ->with('roles',$roles)
+            //                                        ->with('success','Your information have been updated');
+            return redirect('/admin/user/view/'.$id)->with('user',$user)
+                                                   ->with('fullname',$userFullname)
+                                                   ->with('roles',$roles)
+                                                   ->with('success','Your information have been updated');                
 
     }
 

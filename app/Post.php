@@ -13,4 +13,9 @@ class Post extends Model
     public function user(){
         return $this->belongsTo('App\User','created_by');
     }
+
+    public function users(){
+        return $this->belongsToMany('App\User');
+
+    }
 }

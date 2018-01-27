@@ -29,12 +29,11 @@
             
                             <div class="col-sm-6 col-md-6 col-lg-6 text-center">
                                 <div class="name-badge">
-                                    {{Auth::user()->fname}}
-                                    {{Auth::user()->lname}}
+                                {{$fullname}}
                                 </div>
                                 <div>ID: {{Auth::user()->tech_id}}</div>
                                 <div>
-                                    Title: {{Auth::user()->role}}
+                                    Title: {{$user->roles->description}}
                                 </div>
                                 <br>
                                 <a type="button" href="/user_edit" class="btn btn-default"><i class="fa fa-cog" aria-hidden="true"></i>  Edit</a>
@@ -90,35 +89,8 @@
                     <h3 class="panel-title">Messages</h3>
                 </div>
                 <div class="panel-body">
-
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Subject</th>
-                                <th>Importance</th>
-                                <th>Status</th>
-                            </tr>
-
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>New Procedures and Charges </td>
-                                <td>High</td>
-                                <td>New</td>
-                            </tr>
-                            <tr>
-                                <td>Daytime Schedule change</td>
-                                <td>Low</td>
-                                <td>Read</td>
-                            </tr>
-                            <tr>
-                                <td>Rates and prices changes</td>
-                                <td>Normal</td>
-                                <td>Read</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
+                @include('dashboard.partial._post_list')
+                @include('dashboard.partial._modal')
                 </div>
             </div>
         </div>
