@@ -26,7 +26,7 @@ Route::post('user-register','userAuthController@register');
 
 Route::get('user_edit','userController@show')->name('user-edit');
 Route::post('user_edit','userController@update');
-Route::get('user-post','showMessangerForm@postlist');
+Route::get('post_list','showMessangerForm@postlist')->name('user_post_list');
 
 
 // Adminstrator Routes

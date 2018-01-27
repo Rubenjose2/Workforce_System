@@ -23,12 +23,12 @@
         </tr>
         @endforeach
 
-        <script src="{{ asset('js/post_manipulation.js') }}"></script>
+        
     </tbody>
 
 </table>
 @if ($post_count>3)
     <div class="col-md-1 col-md-offset-11">
-        <a href=""><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+        <a href="{{route('user_post_list')}}"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
     </div>
 @endif

@@ -26,12 +26,14 @@ class showMessangerForm extends Controller
         return $post;   
     }
     
-    // public function postlist(){
-        
-    //     $post = DB::table('posts')->take(3)->get();
+    public function postlist(){
+        $user = Auth::user();
+        $id = $user->id;
+        $user = User::find($id);
+        $posts = $user->post;  
 
-    //     return $post;
-    // }
+        return view('dashboard.post_list')->with('posts',$posts);
+    }
 
     public function userUpdatePost(Request $request){
         
