@@ -10,11 +10,13 @@ $(".click-row").click(function(event) {
     $.ajax({
         method: 'GET',
         url: '/admin/postshow',
-        data: { 'id': $post_id },
+        data: {
+            'id': $post_id
+        },
         success: function(response) {
-            $("#button_accept").attr("data-send", response[0].id);
-            $('#myModalLabel').empty().append(response[0].subject);
-            $('.modal-body').empty().append(response[0].body);
+            $("#button_accept").attr("data-send", response.pivot[0].id);
+            $('#myModalLabel').empty().append(response.subject);
+            $('.modal-body').empty().append(response.body);
             $('#myModal').modal({ backdrop: "static" });
             console.log(response);
 
@@ -27,7 +29,9 @@ $('#button_accept').on('click', function() {
     $.ajax({
         method: 'GET',
         url: 'updatepost',
-        data: { 'id': $post_id },
+        data: {
+            'id': $post_id
+        },
         success: function(response) {
             console.log(response);
         }

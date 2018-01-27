@@ -15,7 +15,7 @@
             <td>{{$post->subject}} </td>
             <td>{{$post->importance}}</td>
             <td>{{date('m-d-Y',strtotime($user->created_at))}}</td>
-            <td>{{$post->status}}
+            <td>{{$post->status}}</td>
         </tr>
         @endforeach
 

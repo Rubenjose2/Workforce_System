@@ -19,25 +19,34 @@ class showMessangerForm extends Controller
     }
 
     public function showPost(Request $request){
-        $data = $request->all();
-        
+        $data = $request->id;
+        //Pulling Data firts
+        $user_id = Auth::id();
         $post = Post::find($data);
+        //This would get the id from the pivot table post_user
+        $pivot_id = DB::table('post_user')->select('id')->where([
+            ['user_id',$user_id],
+            ['post_id',$post->id]
+        ])->get();
+        //sending the pivot value into the object back to the DOM
+        $post['pivot']=$pivot_id;
+
 
         return $post;   
     }
-
-    public function postlist(){
+    
+    // public function postlist(){
         
-        $post = DB::table('posts')->take(3)->get();
+    //     $post = DB::table('posts')->take(3)->get();
 
-        return $post;
-    }
+    //     return $post;
+    // }
 
     public function userUpdatePost(Request $request){
         
-        $post_id = $request['id'];
+         
 
-        return $post_id;
+        return $request;
 
         // //Full the user Id to be saved
         // $id = Auth::id();
@@ -56,20 +65,35 @@ class showMessangerForm extends Controller
     //SANDBOX ONLY TEST ROUTE//
       public function usertest($id){
             
-            $user = User::find($id);
-            $posts = $user->post;
-            foreach($posts as $post){
-                $result[] = [
-                    'id'=>$post->id,
-                    'subject'=>$post->subject,
-                    'body'=>$post->body,
-                    'status'=>$post->status,
-                    'pivot'=>$post->pivot->id
-                ];  
-            }
+        //     $user = User::find($id);
+        //     $posts = $user->post;
+        //     foreach($posts as $post){
+        //         $result[] = [
+        //             'id'=>$post->id,
+        //             'subject'=>$post->subject,
+        //             'body'=>$post->body,
+        //             'status'=>$post->status,
+        //             'pivot'=>$post->pivot->id
+        //         ];  
+        //     }
 
-            $sorted = $result->sortByDesc('id');
-        return $sorted;
+        //     $sorted = $result->sortByDesc('id');
+        // return $sorted;
+        
+        $post = Post::find($id);
+        //now pull the user id
+        
+        $user_id = Auth::id();
+
+        $pivot_id = DB::table('post_user')->select('id')->where([
+            ['user_id',$user_id],
+            ['post_id',$post->id]
+        ])->get();
+        
+        $post['pivot'] = $pivot_id;
+
+
+        return $post;   
     }
     /////////////////////////////////////
 }
