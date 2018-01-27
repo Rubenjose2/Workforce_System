@@ -26,22 +26,4 @@
     <div>
     @include('administrator.partial._modal') 
     </div>
-<script>
-    $(".click-row").click(function(event){
-        $post_id = $(this).attr("data-send");
-        $.ajax({
-            method:'GET',
-            url:'/admin/postshow',
-            data:{'id':$post_id},
-            success: function(response){
-                $('#myModalLabel').empty().append(response[0].subject);
-                $('.modal-body').empty().append(response[0].body);
-                $('#myModal').modal({'show' : true});
-                //console.log(response);
-              
-            }
-        })
-    });
-</script>
-
 @endsection

@@ -14,6 +14,14 @@
 
 /* End Importing Bootstrap */
 
+.new-post {
+    color: red;
+}
+
+.read-post {
+    color: #35ce06;
+}
+
 .pointer {
     cursor: pointer;
 }

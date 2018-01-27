@@ -91,7 +91,7 @@ $(".click-row").click(function (event) {
             'id': $post_id
         },
         success: function success(response) {
-            $("#button_accept").attr("data-send", response.pivot[0].id);
+            $("#button_accept").attr("data-send", response.id);
             $('#myModalLabel').empty().append(response.subject);
             $('.modal-body').empty().append(response.body);
             $('#myModal').modal({ backdrop: "static" });
@@ -109,6 +109,7 @@ $('#button_accept').on('click', function () {
             'id': $post_id
         },
         success: function success(response) {
+            $('#post-status').replaceWith('<td class="read-post">Read</td>');
             console.log(response);
         }
     });

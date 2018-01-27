@@ -23,15 +23,6 @@ class showMessangerForm extends Controller
         //Pulling Data firts
         $user_id = Auth::id();
         $post = Post::find($data);
-        //This would get the id from the pivot table post_user
-        $pivot_id = DB::table('post_user')->select('id')->where([
-            ['user_id',$user_id],
-            ['post_id',$post->id]
-        ])->get();
-        //sending the pivot value into the object back to the DOM
-        $post['pivot']=$pivot_id;
-
-
         return $post;   
     }
     
@@ -44,21 +35,14 @@ class showMessangerForm extends Controller
 
     public function userUpdatePost(Request $request){
         
-         
+        $id = Auth::id();
+        $user = User::find($id);
+        $post_id=$request['id'];
+        $date =new \DateTime();
 
-        return $request;
-
-        // //Full the user Id to be saved
-        // $id = Auth::id();
-        // $user = User::find($id);
-        // $post_id=$request['id'];
-        // $combine_id= $user->id.$post_id;
-        // $date =new \DateTime();
-        // //This would check firts is the user already read this Post in order to dont duplicate values
-        // $sql= DB::table('post_user')->where('combine_id',$combine_id)->get();
-        // if($sql->isEmpty()){
-        //     $user->post()->attach(2,['status'=>'1','updated_at'=>$date,'combine_id'=>$combine_id]);
-        // }   
+        $user->post()->updateExistingPivot($post_id,['status'=>'1','updated_at'=>$date]);
+        
+        return $request; 
     }
 
 
@@ -80,20 +64,11 @@ class showMessangerForm extends Controller
         //     $sorted = $result->sortByDesc('id');
         // return $sorted;
         
-        $post = Post::find($id);
-        //now pull the user id
-        
-        $user_id = Auth::id();
+        $user = User::find($id);
+        $posts = $user->post;
+    
 
-        $pivot_id = DB::table('post_user')->select('id')->where([
-            ['user_id',$user_id],
-            ['post_id',$post->id]
-        ])->get();
-        
-        $post['pivot'] = $pivot_id;
-
-
-        return $post;   
+        return $posts;   
     }
     /////////////////////////////////////
 }
