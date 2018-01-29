@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use App\Role;
+use Image;
 
 class userController extends Controller
 {
@@ -150,6 +151,25 @@ class userController extends Controller
 
     }
 
+    public function avatar(Request $request){
+        if ($request->hasFile('avatar')){
+            $avatar  = $request->file('avatar');
+            $filename = time().'.'.$avatar->getClientOriginalExtension();;
+            $img = Image::make($avatar);
+            $img->resize(300,null, function($constraint){
+                $constraint->aspectRatio();
+            });
+            $img->save(public_path('/uploads/avatars/'.$filename));
+
+            $user = Auth::user();
+            $id=$user->id;
+            $user->picture = $filename;
+            $user->save();
+          return redirect('/admin/user/view/'.$id);
+        }
+        return redirect()->back()->with('error','You need to select a file');   
+
+    }
 
 
 }

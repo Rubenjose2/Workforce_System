@@ -10,14 +10,14 @@
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
 <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-        <h1>List of User</h1>
-        <legend>Workforce or Employee</legend>
-        <table id="table_user" class="table table-striped table-bordered" cellspacing="0" width="100%">
-            
-            <thead>
+        <div class ="col-md-10 col-md-offset-1 white-container-noborder  ">
+                <h1>List of Messages</h1>
+                <legend>Workforce Messages</legend>
+        <table id="table-data" class="table table-striped" cellspacing="0" width="100%">
+            <thead class="blue-table-head-color">
                 <tr>
                     <th>#</th>
+                    <th></th>
                     <th>Tech Id</th>
                     <th>Firts Name</th>
                     <th>Last Name</th>
@@ -29,6 +29,7 @@
                 @foreach($users as $user)
                 <tr data-send="{{$user->id}}" class="pointer">
                 <th>{{$user->id}}</th>
+                <th ><img src="/uploads/avatars/{{$user->picture}}"  class="avatar-bullet" /></th>
                 <th>{{$user->tech_id}}</th>
                 <th>{{$user->fname}}</th>
                 <th>{{$user->lname}}</th>

@@ -4,8 +4,9 @@
         <div class="panel panel-info">
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-md-6">
-                        <h3>{{$fullname}} <small>Tech ID: {{$user->tech_id}}</small> </h3>
+                    <div class="col-md-10">
+                     <img src="/uploads/avatars/{{$user->picture}}"  class="avatar-bullet" />
+                     <h3>{{$fullname}} <small>Tech ID: {{$user->tech_id}}</small> </h3>
                     </div>
                 </div>
             </div>
@@ -21,9 +22,14 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="panel panel-default">
-                            <div class="panel-body">
-                                <img src="http://via.placeholder.com/150x150" class="img-circle center" />
-
+                            <div class="panel-body text-center">
+                                <img src="/uploads/avatars/{{$user->picture}}" class="img-responsive avatar-profile"  />
+                                <form enctype="multipart/form-data" action="/admin/avatar" method="POST">
+                                    <label>Update Profile Image</label>
+                                    <input type="file" name="avatar">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input type="submit" class="pull-center btn btn-sm btn-default">
+                                </form>
                             </div>
                         </div>
                     </div>

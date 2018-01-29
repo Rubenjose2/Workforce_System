@@ -1,7 +1,10 @@
 @extends('layouts.admin') 
 @section('content')
-    <table class="table table-hover">
-    <thead>
+<div class ="col-md-10 col-md-offset-1 white-container-noborder  ">
+        <h1>List of Messages</h1>
+        <legend>Workforce Messages</legend>
+<table id="table-data" class="table table-striped" cellspacing="0" width="100%">
+        <thead class="blue-table-head-color">
         <tr>
             <th>#</th>
             <th>Subject</th>
@@ -26,4 +29,5 @@
     <div>
     @include('administrator.partial._modal') 
     </div>
+</div>
 @endsection

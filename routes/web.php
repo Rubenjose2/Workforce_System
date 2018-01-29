@@ -40,13 +40,21 @@ Route::resource('admin/posts', 'adminControllerMessages');
 Route::get('admin/post_form','showMessangerForm@show')->name('postform.show');
 Route::get('admin/postshow','showMessangerForm@showPost');
 Route::get('updatepost','showMessangerForm@userUpdatePost');
-//TEST//
-Route::get('post/{id}','showMessangerForm@usertest');
-
 
 //User Admins site managements
 
 Route::get('admin/user','userController@userlist')->name('user.list');
+Route::post('admin/avatar','userController@avatar');
 Route::get('admin/user/view/{id}','userController@userview');
 Route::post('admin/user/view/{id}','userController@userAdminedit')->name('userAdminUpdate');
+
+
+//TEST//
+Route::get('post/{id}','showMessangerForm@usertest');
+Route::get('test','showTestController@showForm');
+
+//Excel Import and Export Contollers
+
+Route::get('excel_form','ExcelController@showForm');
+Route::post('excel_upload','ExcelController@import');
 

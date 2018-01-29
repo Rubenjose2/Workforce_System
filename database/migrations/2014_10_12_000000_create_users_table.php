@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
             $table->char('role')->default(1);
             $table->boolean('confirmed')->default(0);
             $table->string('status',30)->default('active');
-            $table->string('picture')->nullable($value = true);
+            $table->string('picture')->default('default.jpg');
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();

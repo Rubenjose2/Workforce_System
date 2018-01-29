@@ -18,6 +18,9 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
         crossorigin="anonymous"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.16/b-1.5.1/b-html5-1.5.1/datatables.min.css"/> 
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/b-1.5.1/b-html5-1.5.1/datatables.min.js"></script>
+
 
 
 
@@ -97,9 +100,9 @@
 
     </div>
 
-
-    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{asset('js/style.js')}}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+
 
 </body>
 

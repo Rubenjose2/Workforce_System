@@ -163,6 +163,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -182,6 +183,10 @@ return [
 
         //Forms and HTML added bu Ruben
         Collective\Html\HtmlServiceProvider::class,
+
+        //excel
+
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
@@ -231,11 +236,14 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
         // Foms and HTML added by Ruben
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
 
+        //Excel facede
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];
