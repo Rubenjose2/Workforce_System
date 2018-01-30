@@ -29,16 +29,35 @@ class HomeController extends Controller
         //Retriving the User Information
         $user = Auth::user();
         $id = $user->id;
-        $fullname = $user->fname." ".$user->lname; 
-        //Retriving all the post
-        // $posts = DB::table('posts')->take(3)->orderBy('created_at','desc')->get();
         $user = User::find($id);
-        $posts = $user->post;   
+        ////////////////////////////////
+        $response = '';
+        ////////This can be done better//////
+        if ($user->score){
+            $user_total = $user->score->total_score;
+            $start_rating = round((($user_total*5)/80)*2/2);  
+            $user['start_rating']= $start_rating;
+            $user['fullname']=$user->getFullNameFromUser();
+            //This build the data needed for the MorrisChart
+            $array = [
+                ['description'=>'AM','value'=>$user->score->am],
+                ['description'=>'CX','value'=>$user->score->cx],
+                ['description'=>'Quality','value'=>$user->score->qual]
+            ];
+            /////////////////////////////
+            $response = json_encode($array);
+        }
+        ///////////////////////////////////////
+
+
+
+
+        $posts = $user->post;
         $post_count = DB::table('posts')->count();
         return view('dashboard')->with('user',$user)
-                                ->with('fullname',$fullname)
                                 ->with('posts',$posts)
-                                ->with('post_count',$post_count);
+                                ->with('post_count',$post_count)
+                                ->with('response',$response);
     }
 
 }

@@ -14,36 +14,48 @@
     opacity: .3;
 }
 
-[title=".000"]::after {
+[title="0"]::after {
     width: 0%;
 }
 
-[title=".125"]::after {
+[title="0.5"]::after {
     width: 12.5%;
 }
 
-[title=".250"]::after {
-    width: 25%;
+[title="1"]::after {
+    width: 21%;
 }
 
-[title=".375"]::after {
-    width: 37.5%;
+[title="1.5"]::after {
+    width: 31%;
 }
 
-[title=".500"]::after {
-    width: 50%;
+[title="2"]::after {
+    width: 42%;
 }
 
-[title=".625"]::after {
-    width: 62.5%;
+[title="2.5"]::after {
+    width: 51%;
 }
 
-[title=".750"]::after {
-    width: 75%;
+[title="3"]::after {
+    width: 62%;
 }
 
-[title=".875"]::after {
-    width: 87.5%;
+[title="3.5"]::after {
+    width: 62%;
+}
+
+[title="4"]::after {
+    width: 82%;
+}
+
+[title="4.5"]::after {
+    width: 91%;
+}
+
+[title="5"]::after {
+    width: 100%;
 }
 
 .star-ratings-css::after {

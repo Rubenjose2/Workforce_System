@@ -51,26 +51,34 @@ class showMessangerForm extends Controller
     //SANDBOX ONLY TEST ROUTE//
       public function usertest($id){
             
-        //     $user = User::find($id);
-        //     $posts = $user->post;
-        //     foreach($posts as $post){
-        //         $result[] = [
-        //             'id'=>$post->id,
-        //             'subject'=>$post->subject,
-        //             'body'=>$post->body,
-        //             'status'=>$post->status,
-        //             'pivot'=>$post->pivot->id
-        //         ];  
-        //     }
 
-        //     $sorted = $result->sortByDesc('id');
-        // return $sorted;
         
         $user = User::find($id);
-        $posts = $user->post;
-    
+        $user->score;
+        
 
-        return $posts;   
+        //starting calculation of analityc
+
+        /////////star calculations///////////// 
+
+ 
+        if ($user->score){
+            $user_total = $user->score->total_score;
+            $start_rating = (($user_total*5)/80);    
+            $user['start_rating']= $start_rating;
+            $user['fullname']=$user->getFullNameFromUser();
+        }
+
+        $response = [
+            'am'=>$user->score->am,
+            'cx'=>$user->score->cx,
+            'qual'=>$user->score->qual
+        ];
+
+        // $start_rating = (($user_total*5)/80);    
+        // $user['start_rating']= $start_rating;
+        // $user['fullname']=$user->getFullNameFromUser();
+        return [$user,json_encode($response)];   
     }
     /////////////////////////////////////
 }

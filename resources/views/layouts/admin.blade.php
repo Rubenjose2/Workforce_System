@@ -72,12 +72,20 @@
                                         <a href="{{route('posts.index')}}">List all the Messages</a>
                                     </li>
                                 </ul>
-                                <li>
-                                    <a href="#">
-                                        <i class="glyphicon glyphicon-stats
-                                    "></i> Performance
-                                    </a>
-                                </li>
+                                <li data-toggle="collapse" data-target="#performance" class="collapsed">
+                                        <a href="#">
+                                            <i class="glyphicon glyphicon-stats"></i> Performance
+                                            <span class="arrow"></span>
+                                        </a>
+                                    </li>
+                                    <ul class="sub-menu collapse" id="performance">
+                                        <li>
+                                            <a href="{{route('excel.import')}}">Upload the File </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('show.scorecard')}}">Explore Analityc</a>
+                                        </li>
+                                    </ul>
                                 <li>
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit()" ;>

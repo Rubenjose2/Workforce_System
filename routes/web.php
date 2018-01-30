@@ -55,6 +55,7 @@ Route::get('test','showTestController@showForm');
 
 //Excel Import and Export Contollers
 
-Route::get('excel_form','ExcelController@showForm');
-Route::post('excel_upload','ExcelController@import');
+Route::get('admin/excel_form','ExcelController@showForm')->name('excel.import');
+Route::post('admin/excel_upload','ExcelController@import');
+Route::get('admin/scorecard','ExcelController@scorecard')->name('show.scorecard');
 

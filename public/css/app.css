@@ -96,8 +96,9 @@ body {
 }
 
 .point-container {
-    font-size: 78px;
+    font-size: 60px;
     margin-bottom: -15px;
+    margin-top: 14px;
 }
 
 .panel-point-container {

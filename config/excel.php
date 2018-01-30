@@ -370,8 +370,8 @@ return array(
         | Options: true|false|slugged|slugged_with_count|ascii|numeric|hashed|hashed_with_lower|trans|original
         |
         */
-
-        'heading'                 => 'slugged',
+        //Modify in order to don't miss repat Fields
+        'heading'                 => 'slugged_with_count',
 
         /*
         |--------------------------------------------------------------------------

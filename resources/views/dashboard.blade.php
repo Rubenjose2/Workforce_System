@@ -21,15 +21,18 @@
                         <div class="row">
                             <!-- Image and Rating Display -->
                             <div class="col-sm-6 col-md-6 col-lg-6">
-                                <img src="http://via.placeholder.com/150x150" class="img-circle center" />
-                                <div class="star-ratings-css" title=".500"></div>
+                            <img src="/uploads/avatars/{{$user->picture}}" class="img-responsive avatar-profile"  />
+                            @if($user->score)
+                                <div class="star-ratings-css" title="{{$user->start_rating}}">                              
+                                </div>
+                                @endif  
                             </div>
                             <!-- End Rating Display -->
                             <!-- Begining Personal Data Display -->
             
                             <div class="col-sm-6 col-md-6 col-lg-6 text-center">
                                 <div class="name-badge">
-                                {{$fullname}}
+                                {{$user->getFullNamefromUser()}}
                                 </div>
                                 <div>ID: {{Auth::user()->tech_id}}</div>
                                 <div>
@@ -63,8 +66,13 @@
                             <!-- Begining of Point -->
                             <div class="panel panel-default panel-point-container">
                                 <div class="panel-body text-center">
-                                    <div class="point-container ">50</div>
+                                    <div class="point-container ">
+                                    @if($user->score)
+                                    {{$user->score->total_score}}</div>
                                     <div>Points</div>
+                                    @else
+                                    N/A </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -98,6 +106,8 @@
     </div>
 
 </div>
+<script>var data = {!!$response!!}</script>
+<script src="{{asset('js/chart.js')}}"></script>
 
 @endsection
 

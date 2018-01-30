@@ -77,7 +77,7 @@ module.exports = __webpack_require__(226);
 /***/ (function(module, exports) {
 
 // For the alerts auto dismist
-$("#success-alert").fadeTo(500, 500).slideUp(500, function () {
+$("#success-alert").fadeTo(1000, 500).slideUp(500, function () {
     $("#success-alert").slideUp(500);
 });
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Excel;
 use DB;
 use Config;
+use App\Score;
 
 class ExcelController extends Controller
 {
@@ -20,6 +21,7 @@ class ExcelController extends Controller
             $path = $request->file('import_file')->getRealPath();
             Config::set('excel.import.startRow', 2);
             $data = Excel::selectSheets('Partner Technician')->load($path,function($reader){})->get();
+                dd($data);
                 if (!empty($data)&& $data->count()){
                     foreach($data as $key =>$value){
                         $insert[]=[
@@ -59,9 +61,14 @@ class ExcelController extends Controller
                     if (!empty($insert)){
                         DB::table('scores')->truncate();
                         DB::table('scores')->insert($insert);
-                        dd('insert are done correct');
+                        return redirect('/admin/excel_form')->with('insert',$insert);
                     }
                 }
         } 
+    }
+
+    public function scorecard(){
+        $score = Score::all();
+        return view('administrator.scorecard')->with('score',$score);
     }
 }

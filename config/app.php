@@ -188,6 +188,10 @@ return [
 
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
+        //Debugger Clockwork
+
+        Clockwork\Support\Laravel\ClockworkServiceProvider::class
+
     ],
 
     /*
@@ -244,6 +248,8 @@ return [
 
         //Excel facede
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        //Debugger Clockwork
+        'Clockwork' => Clockwork\Support\Laravel\Facade::class,
     ],
 
 ];

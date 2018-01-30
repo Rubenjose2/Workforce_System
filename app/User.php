@@ -42,6 +42,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Post','created_by');
     }
 
+    public function getFullNamefromUser(){
+        return "{$this->fname} {$this->lname}";
+    }
     //Relation with roles table
 
     public function roles(){
@@ -50,5 +53,10 @@ class User extends Authenticatable
 
     public function post(){
         return $this->belongsToMany('App\Post')->withPivot('id','status');
+    }
+
+    //Relation with Score Numbers
+    public function score(){
+        return $this->hasOne('App\Score','tech_user_id','tech_id');
     }
 }
