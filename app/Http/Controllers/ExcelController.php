@@ -21,43 +21,73 @@ class ExcelController extends Controller
             $path = $request->file('import_file')->getRealPath();
             Config::set('excel.import.startRow', 2);
             $data = Excel::selectSheets('Partner Technician')->load($path,function($reader){})->get();
-                dd($data);
                 if (!empty($data)&& $data->count()){
                     foreach($data as $key =>$value){
                         $insert[]=[
+                        //tech data insert
                         'dma'=>$value->dma,
                         'partner'=>$value->partner,
                         'tech_user_id'=>$value->tech_user_id,
                         'tech_name'=>$value->tech_name,
                         'total_score'=>$value->total_score,
+                        //total scores
                         'am'=>$value->am,
                         'cx'=>$value->cx,
                         'qual'=>$value->qual,
-                        'staffing'=>$value->staffing,
-                        'closed'=>$value->closed,
-                        'scheduled'=>$value->scheduled,
-                        'goal'=>$value->goal,
-                        'vs_goal'=>$value->vs_goal,
-                        'score'=>$value->score,
-                        'cat_score'=>$value->cat_score,
-                        'plan_score'=>$value->plan_score,
-                        'surveys'=>$value->plan_surveys,
+                         //SDCP
+                        'SDCP_closed'=>$value->closed,
+                        'SDCP_scheduled'=>$value->scheduled,
+                        'SDCP_%'=>$value->{0},
+                        'SDCP_goal'=>$value->goal,
+                        //SDCS
+                        'SDCs_closed'=>$value->closed_1,
+                        'SDCs_scheduled'=>$value->scheduled_1,
+                        'SDCs_%'=>$value->_1,
+                        'SDCs_goal'=>$value->goal_1,
+                        //POST CALL
+                        'pts'=>$value->pts,
+                        'surveys'=>$value->surveys,
                         'pc'=>$value->pc,
-                        'p_d'=>$value->p_d,
-                        'total'=>$value->total,
-                        'nps_p'=>$value->nps_p,
-                        'cb'=>$value->cb,
-                        'decas'=>$value->decas,
-                        'added'=>$value->added,
-                        'elegible'=>$value->elegible,
-                        'actual'=>$value->actual,
-                        'delta'=>$value->delta,
-                        'sold'=>$value->sold,
-                        'qs'=>$value->qs,
-                        'qcs'=>$value->qcs,
-                        'i90'=>$value->i90                   
+                        //NPS-P
+                        //NPS Production
+                       'nps_p_d'=>$value->p_d,
+                       'nps_p_total'=>$value->total,
+                       'nps_p'=>$value->nps_p,
+                        //NPS Service
+                       'nps_s_d'=>$value->p_d_1,
+                       'nps_s_total'=>$value->total_1,
+                       'nps_s'=>$value->nps_s,
+                        //CCK
+                      'cb'=>$value->cb,
+                      'decas'=>$value->decas,
+                      'cck_%'=>$value->_2,
+                      'added'=>$value->added,
+                      'elegible'=>$value->eligible,
+                      'actual'=>$value->actual,
+                      'cck_goal'=>$value->goal_2,
+                        //Protection Plan
+                      'sold'=>$value->sold,
+                      'PP_elegible'=>$value->eligible_1,
+                      'PP_%'=>$value->_3,
+                        //AIQ Production
+                      'AIQ_P_qs'=>$value->qs,
+                      'AIQ_P_closed'=>$value->closed_2,
+                      'AIQ_P_%'=>$value->_4,
+                        //AIQ SERVICE
+                      'AIQ_S_qs'=>$value->qs_1,
+                      'AIQ_S_closed'=>$value->closed_3,
+                      'AIQ_S_%'=>$value->_5,
+                        //SELF QA
+                      'qcs'=>$value->qcs,
+                      'qa_closed'=>$value->closed_4,
+                      'qa_%'=>$value->_6,
+                        //SIN90
+                      'i90'=>$value->i90,
+                      'i90_closed'=>$value->closed_5,
+                      'i90_%'=>$value->_7
                     ];
                     }
+
                     if (!empty($insert)){
                         DB::table('scores')->truncate();
                         DB::table('scores')->insert($insert);
