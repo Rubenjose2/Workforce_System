@@ -13,7 +13,7 @@ class userController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-    }
+    } 
     /**
      * Display a listing of the resource.
      *
@@ -94,7 +94,10 @@ class userController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->post()->detach();
+        $user->delete();
+        return redirect('admin/user')->with('success','The user have been deleted');
     }
 
 

@@ -10,6 +10,12 @@ use App\Score;
 
 class ExcelController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function showForm(){
 
     return view('importexcel');
@@ -91,7 +97,7 @@ class ExcelController extends Controller
                     if (!empty($insert)){
                         DB::table('scores')->truncate();
                         DB::table('scores')->insert($insert);
-                        return redirect('/admin/excel_form')->with('insert',$insert);
+                        return redirect('/admin/scorecard')->with('success','The Score have been loaded...');
                     }
                 }
         } 

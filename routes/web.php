@@ -47,6 +47,7 @@ Route::get('admin/user','userController@userlist')->name('user.list');
 Route::post('admin/avatar','userController@avatar');
 Route::get('admin/user/view/{id}','userController@userview');
 Route::post('admin/user/view/{id}','userController@userAdminedit')->name('userAdminUpdate');
+Route::post('admin/user/{id}','userController@destroy')->name('user.destroy');
 
 
 //TEST//

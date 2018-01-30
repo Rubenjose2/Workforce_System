@@ -136,12 +136,15 @@
                                       </div>
                                       <div class="col-md-12">
                                           <br>
-
                                       </div>
                                       <button type="submit" class="btn btn-success btn-block">Update</button>
-
                                     </form>
-
+                                <div>
+                                    <form action="{{route('user.destroy',$user->id)}}" method="POST">
+                                            {{csrf_field()}}
+                                    <button type="submit" class="btn btn-danger btn-block">Delete</button>
+                                    </form>
+                                </div>
 
                                 </div>
                             </div>
