@@ -19,3 +19,4 @@ mix.js('resources/assets/js/bootstrap-formhelpers-phone.js', 'public/js');
 mix.js('resources/assets/js/bootstrap.js', 'public/js');
 mix.js('resources/assets/js/bootstrap.min.js', 'public/js');
 mix.js('resources/assets/js/style.js', 'public/js');
+mix.js('resources/assets/js/analityc.js', 'public/js');

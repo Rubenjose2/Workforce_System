@@ -60,64 +60,71 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 225);
+/******/ 	return __webpack_require__(__webpack_require__.s = 227);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 225:
+/***/ 227:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(226);
+module.exports = __webpack_require__(228);
 
 
 /***/ }),
 
-/***/ 226:
+/***/ 228:
 /***/ (function(module, exports) {
 
-// For the alerts auto dismist
-$("#success-alert").fadeTo(1000, 500).slideUp(500, function () {
-    $("#success-alert").slideUp(500);
-});
-
-//Modal post manipulation
-$(".click-row").click(function (event) {
-    $post_id = $(this).attr("data-send");
-    $.ajax({
-        method: 'GET',
-        url: '/admin/postshow',
-        data: {
-            'id': $post_id
-        },
-        success: function success(response) {
-            $("#button_accept").attr("data-send", response.id);
-            $('#myModalLabel').empty().append(response.subject);
-            $('.modal-body').empty().append(response.body);
-            $('#myModal').modal({ backdrop: "static" });
-            // console.log(response);
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    responsive: true,
+    type: 'horizontalBar',
+    data: {
+        labels: ["Activity Management", "Customer Expirience", "Quality Control"],
+        datasets: [{
+            label: 'Total Score',
+            data: response,
+            backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
+            borderColor: ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
         }
-    });
+    }
 });
 
-$('#button_accept').on('click', function () {
-    $post_id = $(this).attr("data-send");
-    $.ajax({
-        method: 'GET',
-        url: 'updatepost',
-        data: {
-            'id': $post_id
-        },
-        complete: function complete(response) {
-            $('.post-status[data-id=' + $post_id + ']').replaceWith('<td class="read-post">Read</td>');
-            // console.log(response);
+var ctx2 = document.getElementById("activity_chart");
+var myChart2 = new Chart(ctx2, {
+    responsive: true,
+    type: 'bar',
+    data: {
+        labels: ["SDC Production", "SDC Scheduled", "SDC Service", "SDC Schedule Service"],
+        datasets: [{
+            label: 'Total Score',
+            data: response_activity,
+            backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
+            borderColor: ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
         }
-    });
-});
-//Data table 
-
-$('#table-data').DataTable({
-    order: [3, 'desc']
+    }
 });
 
 /***/ })
