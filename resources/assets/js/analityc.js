@@ -3,25 +3,23 @@ var myChart = new Chart(ctx, {
     responsive: true,
     type: 'horizontalBar',
     data: {
-        labels: ["Activity Management", "Customer Expirience", "Quality Control"],
+        labels: ["Activity Management", "Quality Control", "Customer Expirience"],
         datasets: [{
             label: 'Total Score',
             data: response,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(137,167,191,0.7)',
+                'rgba(91,111,127,0.7)',
+                'rgba(182,222,255,0.7)',
+                'rgba(46,56,64,0.7)',
+                'rgba(164,200,229,0.7)'
             ],
             borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(137,167,191,0.7)',
+                'rgba(91,111,127,0.7)',
+                'rgba(182,222,255,0.7)',
+                'rgba(46,56,64,0.7)',
+                'rgba(164,200,229,0.7)'
             ],
             borderWidth: 1
         }]
@@ -42,25 +40,23 @@ var myChart2 = new Chart(ctx2, {
     responsive: true,
     type: 'bar',
     data: {
-        labels: ["SDC Production", "SDC Scheduled", "SDC Service", "SDC Schedule Service"],
+        labels: ["SDC Production", "Production Goal", "SDC Service", "Service Goal"],
         datasets: [{
-            label: 'Total Score',
+            label: 'Data presented on Percentage (%)',
             data: response_activity,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(137,167,191,0.7)',
+                'rgba(91,111,127,0.7)',
+                'rgba(182,222,255,0.7)',
+                'rgba(46,56,64,0.7)',
+                'rgba(164,200,229,0.7)'
             ],
             borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(137,167,191,0.7)',
+                'rgba(91,111,127,0.7)',
+                'rgba(182,222,255,0.7)',
+                'rgba(46,56,64,0.7)',
+                'rgba(164,200,229,0.7)'
             ],
             borderWidth: 1
         }]

@@ -29,12 +29,12 @@ class ScoreCardNew extends Migration
             //SDCP Completion on Production//
             $table->char('SDCP_closed',10)->nullable($value = true);
             $table->char('SDCP_scheduled',10)->nullable($value = true);
-            $table->char('SDCP_%',10)->nullable($value= true);
+            $table->char('SDCP_',10)->nullable($value= true);
             $table->char('SDCP_goal',10)->nullable($value = true);
             //SDCP Completion on Services//
             $table->char('SDCs_closed',10)->nullable($value = true);
             $table->char('SDCs_scheduled',10)->nullable($value = true);
-            $table->char('SDCs_%',10)->nullable($value= true);
+            $table->char('SDCs_',10)->nullable($value= true);
             $table->char('SDCs_goal',10)->nullable($value = true);
             //Post Call Surveys
             $table->char('pts',10)->nullable($value=true);
@@ -51,7 +51,7 @@ class ScoreCardNew extends Migration
             //CCK
             $table->char('cb',10)->nullable($value = true);
             $table->char('decas',10)->nullable($value = true);
-            $table->char('cck_%',10)->nullable($value = true);
+            $table->char('cck_',10)->nullable($value = true);
             $table->char('added',10)->nullable($value = true);
             $table->char('elegible',10)->nullable($value = true);
             $table->char('actual',10)->nullable($value = true);
@@ -63,11 +63,11 @@ class ScoreCardNew extends Migration
             //AIQ Production
             $table->char('AIQ_P_qs',10)->nullable($value = true);
             $table->char('AIQ_P_closed',10)->nullable($value = true);
-            $table->char('AIQ_P_%',10)->nullable($value = true);
+            $table->char('AIQ_P_',10)->nullable($value = true);
             //AIQ SERVICE
             $table->char('AIQ_S_qs',10)->nullable($value = true);
             $table->char('AIQ_S_closed',10)->nullable($value = true);
-            $table->char('AIQ_S_%',10)->nullable($value = true);
+            $table->char('AIQ_S_',10)->nullable($value = true);
             //SELF QA
             $table->char('qcs',10)->nullable($value = true);
             $table->char('qa_closed',10)->nullable($value = true);
@@ -75,7 +75,7 @@ class ScoreCardNew extends Migration
             //SIN90
             $table->char('i90',10)->nullable($value = true);
             $table->char('i90_closed',10)->nullable($value = true);
-            $table->char('i90_%',10)->nullable($value = true);  
+            $table->char('i90_',10)->nullable($value = true);  
 
 
             $table->timestamps();

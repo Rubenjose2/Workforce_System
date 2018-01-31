@@ -291,6 +291,9 @@ img {
         padding-left: 20px;
         line-height: 50px !important;
     }
+    .navbar {
+        display: none;
+    }
 }
 
 @media (min-width: 767px) {

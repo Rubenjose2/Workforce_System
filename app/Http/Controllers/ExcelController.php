@@ -43,12 +43,12 @@ class ExcelController extends Controller
                          //SDCP
                         'SDCP_closed'=>$value->closed,
                         'SDCP_scheduled'=>$value->scheduled,
-                        'SDCP_%'=>$value->{0},
+                        'SDCP_'=>$value->{0},
                         'SDCP_goal'=>$value->goal,
                         //SDCS
                         'SDCs_closed'=>$value->closed_1,
                         'SDCs_scheduled'=>$value->scheduled_1,
-                        'SDCs_%'=>$value->_1,
+                        'SDCs_'=>$value->_1,
                         'SDCs_goal'=>$value->goal_1,
                         //POST CALL
                         'pts'=>$value->pts,
@@ -66,7 +66,7 @@ class ExcelController extends Controller
                         //CCK
                       'cb'=>$value->cb,
                       'decas'=>$value->decas,
-                      'cck_%'=>$value->_2,
+                      'cck_'=>$value->_2,
                       'added'=>$value->added,
                       'elegible'=>$value->eligible,
                       'actual'=>$value->actual,
@@ -74,23 +74,23 @@ class ExcelController extends Controller
                         //Protection Plan
                       'sold'=>$value->sold,
                       'PP_elegible'=>$value->eligible_1,
-                      'PP_%'=>$value->_3,
+                      'PP_'=>$value->_3,
                         //AIQ Production
                       'AIQ_P_qs'=>$value->qs,
                       'AIQ_P_closed'=>$value->closed_2,
-                      'AIQ_P_%'=>$value->_4,
+                      'AIQ_P_'=>$value->_4,
                         //AIQ SERVICE
                       'AIQ_S_qs'=>$value->qs_1,
                       'AIQ_S_closed'=>$value->closed_3,
-                      'AIQ_S_%'=>$value->_5,
+                      'AIQ_S_'=>$value->_5,
                         //SELF QA
                       'qcs'=>$value->qcs,
                       'qa_closed'=>$value->closed_4,
-                      'qa_%'=>$value->_6,
+                      'qa_'=>$value->_6,
                         //SIN90
                       'i90'=>$value->i90,
                       'i90_closed'=>$value->closed_5,
-                      'i90_%'=>$value->_7
+                      'i90_'=>$value->_7
                     ];
                     }
 
