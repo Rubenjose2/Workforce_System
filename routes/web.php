@@ -40,11 +40,12 @@ Route::resource('admin/posts', 'adminControllerMessages');
 Route::get('admin/post_form','showMessangerForm@show')->name('postform.show');
 Route::get('admin/postshow','showMessangerForm@showPost');
 Route::get('updatepost','showMessangerForm@userUpdatePost');
+Route::post('admin/post_delete','showMessangerForm@destroypost');
 
 //User Admins site managements
 
 Route::get('admin/user','userController@userlist')->name('user.list');
-Route::post('admin/avatar','userController@avatar');
+Route::post('admin/avatar/{id}','userController@avatar');
 Route::get('admin/user/view/{id}','userController@userview');
 Route::post('admin/user/view/{id}','userController@userAdminedit')->name('userAdminUpdate');
 Route::post('admin/user/{id}','userController@destroy')->name('user.destroy');
@@ -59,4 +60,8 @@ Route::get('test','showTestController@showForm');
 Route::get('admin/excel_form','ExcelController@showForm')->name('excel.import');
 Route::post('admin/excel_upload','ExcelController@import');
 Route::get('admin/scorecard','ExcelController@scorecard')->name('show.scorecard');
+
+//Show Analytics
+
+Route::get('analytic','showAnalytic@show')->name('show.analytic');
 

@@ -130,6 +130,9 @@ class adminControllerMessages extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->users()->detach();
+        $post->delete();
+        return redirect('admin/post')->with('success','Your post have been deleted');
     }
 }

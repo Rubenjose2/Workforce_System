@@ -33,7 +33,7 @@ $('#button_accept').on('click', function() {
                 'id': $post_id
             },
             complete: function(response) {
-                $('#post-status').replaceWith('<td class="read-post">ok</td>');
+                $('.post-status[data-id=' + $post_id + ']').replaceWith('<td class="read-post">Read</td>');
                 // console.log(response);
             }
         })

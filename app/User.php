@@ -59,4 +59,13 @@ class User extends Authenticatable
     public function score(){
         return $this->hasOne('App\Score','tech_user_id','tech_id');
     }
+
+    public function isAdminManager(){
+
+        if($this->security_level =='admin'&& $this->role==3){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

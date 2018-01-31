@@ -24,7 +24,7 @@
                         <div class="panel panel-default">
                             <div class="panel-body text-center">
                                 <img src="/uploads/avatars/{{$user->picture}}" class="img-responsive avatar-profile"  />
-                                <form enctype="multipart/form-data" action="/admin/avatar" method="POST">
+                                <form enctype="multipart/form-data" action="/admin/avatar/{{$user->id}}" method="POST">
                                     <label>Update Profile Image</label>
                                     <input type="file" name="avatar">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">

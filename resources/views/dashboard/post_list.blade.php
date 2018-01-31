@@ -21,9 +21,9 @@
             <td>{{$post->importance}}</td>
             <td>{{date('m-d-Y',strtotime($post->created_at))}}</td>
             @if($post->pivot->status==0)
-            <td id="post-status" class="new-post">New</td>
+            <td data-id="{{$post->id}}" class="new-post post-status">New</td>
             @else
-            <td id="post-status" class="read-post">Read</td>
+            <td data-id="{{$post->id}}" class="read-post post-status">Read</td>
             @endif
         </tr>
         @endforeach

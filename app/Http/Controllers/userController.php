@@ -154,7 +154,7 @@ class userController extends Controller
 
     }
 
-    public function avatar(Request $request){
+    public function avatar($id,Request $request){
         if ($request->hasFile('avatar')){
             $avatar  = $request->file('avatar');
             $filename = time().'.'.$avatar->getClientOriginalExtension();;
@@ -164,8 +164,7 @@ class userController extends Controller
             });
             $img->save(public_path('/uploads/avatars/'.$filename));
 
-            $user = Auth::user();
-            $id=$user->id;
+            $user = User::find($id);
             $user->picture = $filename;
             $user->save();
           return redirect('/admin/user/view/'.$id);

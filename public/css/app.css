@@ -22,6 +22,14 @@
     border-radius: 50%
 }
 
+.avatar-profile-v2 {
+    object-position: center;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 34%
+}
+
 .avatar-bullet {
     width: 50px;
     height: 50px;

@@ -3,11 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class showTestController extends Controller
 {
 
     public function showForm(){
-    return view('administrator.test_picture_upload');
+    
+        if(Auth::user()->isAdminManager()){
+           echo "Yes ok";
+        }else{
+            echo "No";
+        }
+        
+
     }
 }
