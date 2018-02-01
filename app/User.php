@@ -68,4 +68,12 @@ class User extends Authenticatable
             return false;
         }
     }
+
+    public function isAdmin(){
+        if($this->security_level =='admin'){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

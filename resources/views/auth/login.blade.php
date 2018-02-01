@@ -26,7 +26,7 @@
                 </div>
                 <div class="panel-body">
 
-                    <form action="{{ route('login') }}" method="POST">
+                    <form action="{{ route('login.custom') }}" method="POST">
                         {{csrf_field()}}
                         <div class="form-group">
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

@@ -40,7 +40,7 @@ Route::resource('admin/posts', 'adminControllerMessages');
 Route::get('admin/post_form','showMessangerForm@show')->name('postform.show');
 Route::get('admin/postshow','showMessangerForm@showPost');
 Route::get('updatepost','showMessangerForm@userUpdatePost');
-Route::post('admin/post_delete','showMessangerForm@destroypost');
+Route::post('admin/post_delete/{id}','adminControllerMessages@destroy');
 
 //User Admins site managements
 
@@ -64,4 +64,11 @@ Route::get('admin/scorecard','ExcelController@scorecard')->name('show.scorecard'
 //Show Analytics
 
 Route::get('analytic','showAnalytic@show')->name('show.analytic');
+
+// Custom Logincontroller
+
+Route::post('/login/custom',[
+    'uses'=>'LoginController@login',
+     'as'=>'login.custom'
+]);
 

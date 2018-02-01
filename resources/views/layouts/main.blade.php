@@ -73,7 +73,7 @@
                             </li>  --}}
                             {{--  Menu with options  --}}
                             <li >
-                                <a href="#">
+                                <a href="{{route('show.analytic')}}">
                                     <i class="fa fa fa-line-chart fa-lg"></i> Performance
 
                                 </a>
