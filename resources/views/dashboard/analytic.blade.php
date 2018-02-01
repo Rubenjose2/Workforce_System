@@ -134,11 +134,11 @@
             </div>
         </div>
     </div>
-{{-- Quality Control --}}
+{{-- Minor Graph --}}
 
 <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Quality Control</h3>
+            <h3 class="panel-title">Additional Charts</h3>
         </div>
         <div class="panel-body">
             <div class="col-md-8 col-lg-8">
