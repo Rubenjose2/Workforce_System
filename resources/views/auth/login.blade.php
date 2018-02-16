@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}"> 
-    {{-- style --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}"> {{-- style --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>Login</title>
 
@@ -21,7 +20,7 @@
 
             <div class="panel panel-default login-container">
                 <div class="panel-heading">
-                    <img src="./img/zhionet.png"  alt="logo" class="login-image-container">
+                    <img src="./img/zhionet.png" alt="logo" class="login-image-container">
                     <h3 class="panel-title login-title text-center">WorkForce</h3>
                 </div>
                 <div class="panel-body">
@@ -30,41 +29,45 @@
                         {{csrf_field()}}
                         <div class="form-group">
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label >Username</label>
-                            <input type="text" class="form-control" name="email" placeholder="email address" required autofocus>
-                            @if ($errors->has('email'))
-                            <span class="help-block">
+                                <label>Username</label>
+                                <input type="text" class="form-control" name="email" placeholder="email address" required autofocus> @if ($errors->has('email'))
+                                <span class="help-block">
                                 <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
-                        </div>
-                        <div class="form-group">
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="">Password</label>
-                            <input type="password" class="form-control" name="password" placeholder="password">
-                            @if ($errors->has('password'))
-                            <span class="help-block">
+                            </span> @endif
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                    <label for="">Password</label>
+                                    <input type="password" class="form-control" name="password" placeholder="password"> @if ($errors->has('password'))
+                                    <span class="help-block">
                                 <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                        @endif
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-default">Submit</button>
-                            <br>
-                        </div>
+                            </span> @endif
+                                </div>
+                                <div>
+                                    <h3>Access as User</h3>
+                                    <p>Username: user@email.com </p>
+                                    <p>Password: 123456 </p>
+                                    <h3>Access as Admin </h3>
+                                    <p>Username: admin@email.com </p>
+                                    <p>Password: 123456 </p>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                    <br>
+                                </div>
                     </form>
 
+                    </div>
+                    </div>
+                    <div class=" col-md-4 col-lg-4">
+                    </div>
                 </div>
+
+
             </div>
-            <div class=" col-md-4 col-lg-4">
-            </div>
-        </div>
 
-
-    </div>
-
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+            <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+            <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>
